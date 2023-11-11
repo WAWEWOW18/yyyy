@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <img src="forest.png" class="forest">
+        <img src="cloud1.png" class="cloud1">
+        <img src="cloud2.png" class="cloud2">
+        <img src="cloud3.png" class="cloud3">
+        <img src="cloud1.png" class="cloud4">
+        <img src="cloud2.png" class="cloud5">
+        <img src="cloud3.png" class="cloud6">
+</head>
+<style >
+	*{
+		padding: 0;
+		margin: 0;
+
+	}
+	body{
+    background: linear-gradient(0.25turn, rgb(215, 255, 255), rgb(6, 104, 104));
+		background-size: cover;
+		background-position: center;
+		height: 100vh;
+		overflow: hidden;
+		color: black;
+	}
+	.forest
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transform: scale(1.2);
+}
+.cloud1
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 600px;
+    z-index: 10000;
+    animation: animateCloud 50s linear infinite ;
+}
+.cloud2
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 500px;
+    z-index: 10000;
+    animation: animateCloud 35s linear infinite ;
+}
+.cloud3
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 600px;
+    z-index: 10000;
+    animation: animateCloud 80s linear infinite ;
+}
+.cloud4
+{
+    position: absolute;
+    top: 200px;
+    left: 0;
+    max-width: 300px;
+    z-index: 10000;
+    animation: animateCloud 70s linear infinite ;
+    animation-delay: -20;
+}
+.cloud5
+{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    max-width: 500px;
+    z-index: 10000;
+    animation: animateCloud 40s linear infinite ;
+    animation-delay: -5s;
+}
+.cloud6
+{
+    position: absolute;
+    top: 75px;
+    left: 0;
+    max-width: 400px ;
+    z-index: 10000;
+    animation: animateCloud 30s linear infinite ;
+    animation-delay: -10s;
+}
+@keyframes animateCloud
+{
+    0%
+    {
+        transform: translateX(-100%) scale(1);
+    }
+    100%
+    {
+        transform: translateX(400%) scale(1.5);
+    }
+}
+	
+</style>
+<body>
+    <audio id="song">
+        <source src="penjaga hati.mp3">
+    </audio>
+    <script src="vara.min.js"></script>
+  <div id="container"></div>
+  <a href="" class="hidden"></a>
+  	<div class="wrapper">
+    <div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('click', () => {
+              document.getElementById("song").play();
+          });
+      var fontSize = 40;
+      if (window.screen.width > 700) 
+        fontSize = 55 ;
+      else if (window.screen.width > 1200)
+        fontSize = 80; 
+      var vara = new Vara(
+        "#container",
+        "https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
+        [
+          {
+            text : "kamu lebih kuat dari yang kamu kira",
+            y: 150,
+                delay : 500,
+            fromCurrentPosition: {y:false},
+            duration:5000
+        },
+        {
+          text : "selalu berusaha menjadi baik jangan takut gagal",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:5200
+        },
+      {
+          text : "jangan biarkan orang lain merendahkanmu",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:5500
+        },
+      {
+          text : "kamu berharga dan layak baagia ",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:5200
+        },
+        {
+          text : "tetap semanagat jangan pernah menyerah ",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:5200
+        },
+      {
+          text : "percayalah pada diri kamu sendiri, kamu pasti bisa melakakukan apa yang kamu mau",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:4300
+        },
+      {
+          text : "hehe",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:1800
+        },
+        {
+          text : "ikhlas dan slalu bersyukur",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:3200
+        },
+      {
+          text : "allah tau kapan kamu hharus bahgia:D",
+          y: 150,
+          fromCurrentPosition: {y:false},
+          delay:1000,
+          duration:3200
+        },
+        ],
+  
+          {
+            strokeWidth: 2,
+            color:"#fff",
+            fontSize:fontSize,
+            textAlign:"center"
+          }
+        );
+      vara.ready(function(){
+        var erase = true;
+        vara.animationEnd(function(i, o){
+          if (i == "no_erase") erase = false; 
+          if (erase) {
+            o.container.style.transition = 
+            "opacity 1s 1s";
+            o.container.style.opacity = 0;
+          }
+        });
+      });
+  
+    </script>
+</body>
+</html>
